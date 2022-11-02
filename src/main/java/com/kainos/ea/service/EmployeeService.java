@@ -15,7 +15,7 @@ import java.util.List;
 @Api("Engineering Academy Dropwizard API")
 public class EmployeeService {
 
-    Connection connection = com.kainos.ea.db.dbConnection.getConnection();
+    Connection connection = dbConnection.getConnection();
 
     public List<Employee> getAllEmployees() throws SQLException {
         EmployeeDao employeeDao = new EmployeeDao();
@@ -25,6 +25,17 @@ public class EmployeeService {
     public Employee getEmployeeById(int EmployeeID) throws SQLException {
         EmployeeDao employeeDao = new EmployeeDao();
         return employeeDao.selectEmployeeByID(EmployeeID, connection);
+    }
+
+    public Boolean InsertEmployee(Employee employee) throws SQLException {
+        EmployeeDao employeeDao = new EmployeeDao();
+        employeeDao.insertEmployee(employee, connection);
+        return true;
+    }
+
+    public List<Employee> getEmployeeGrossPay() throws SQLException{
+        EmployeeDao employeeDao = new EmployeeDao();
+        return employeeDao.getEmployeeGrossPay(connection);
     }
 
 }
