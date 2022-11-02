@@ -30,6 +30,7 @@ public class EmployeeService {
     public Boolean InsertEmployee(Employee employee) throws SQLException {
         EmployeeDao employeeDao = new EmployeeDao();
         employeeDao.insertEmployee(employee, connection);
+        return true;
     }
 
     public List<Employee> getEmployeeGrossPay() throws SQLException{
