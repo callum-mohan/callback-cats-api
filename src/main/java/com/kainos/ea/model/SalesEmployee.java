@@ -6,6 +6,7 @@ public class SalesEmployee extends Employee{
     private float commissionRate;
     private float totalSales;
 
+
     public SalesEmployee(int employeeId, String first_name, String last_name, float totalSales) {
         super(employeeId, first_name, last_name);
         setTotalSales(totalSales);
@@ -30,14 +31,11 @@ public class SalesEmployee extends Employee{
     public void setTotalSales(float totalSales) {
         this.totalSales = totalSales;
     }
+
     public int getSalesId() {
         return salesId;
     }
     public void setSalesId(int salesId) {
         this.salesId = salesId;
-    }
-
-    public SalesEmployee(){
-
     }
 }
