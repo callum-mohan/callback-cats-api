@@ -11,6 +11,27 @@ public class Employee {
     private float startSalary;
     private int departmentId;
 
+    public Employee(){
+
+    }
+
+    public Employee(int employeeId, String first_name,String last_name, String address, String postcode,String nin, String bankNo, float startSalary,  int departmentId) {
+        setEmployeeId(employeeId);
+        setFirst_name(first_name);
+        setLast_name(last_name);
+        setAddress(address);
+        setPostcode(postcode);
+        setNin(nin);
+        setStartSalary(startSalary);
+        setBankNo(bankNo);
+        setDepartmentId(departmentId);
+    }
+
+    public Employee(int employeeId, String first_name, String last_name) {
+        setEmployeeId(employeeId);
+        setFirst_name(first_name);
+        setLast_name(last_name);
+    }
 
     public int getEmployeeId() {
         return employeeId;
@@ -83,17 +104,4 @@ public class Employee {
     public void setDepartmentId(int departmentId) {
         this.departmentId = departmentId;
     }
-
-    public Employee(int employeeId, String first_name,String last_name, String address, String postcode,String nin, String bankNo, float startSalary,  int departmentId) {
-        setEmployeeId(employeeId);
-        setFirst_name(first_name);
-        setLast_name(last_name);
-        setAddress(address);
-        setPostcode(postcode);
-        setNin(nin);
-        setStartSalary(startSalary);
-        setBankNo(bankNo);
-        setDepartmentId(departmentId);
-    }
-
 }
