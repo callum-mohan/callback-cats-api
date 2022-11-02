@@ -3,16 +3,11 @@ package com.kainos.ea.service;
 import com.kainos.ea.dao.EmployeeDao;
 import com.kainos.ea.db.dbConnection;
 import com.kainos.ea.model.Employee;
-import io.swagger.annotations.Api;
 
-import javax.ws.rs.*;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-@Path("/api")
-@Api("Engineering Academy Dropwizard API")
 public class EmployeeService {
 
     Connection connection = dbConnection.getConnection();
@@ -27,7 +22,7 @@ public class EmployeeService {
         return employeeDao.selectEmployeeByID(EmployeeID, connection);
     }
 
-    public Boolean InsertEmployee(Employee employee) throws SQLException {
+    public Boolean insertEmployee(Employee employee) throws SQLException {
         EmployeeDao employeeDao = new EmployeeDao();
         employeeDao.insertEmployee(employee, connection);
         return true;
