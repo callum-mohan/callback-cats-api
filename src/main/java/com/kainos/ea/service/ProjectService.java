@@ -1,14 +1,8 @@
 package com.kainos.ea.service;
 
-import com.kainos.ea.dao.EmployeeDao;
 import com.kainos.ea.dao.ProjectDao;
 import com.kainos.ea.db.dbConnection;
-import com.kainos.ea.model.DeliveryEmployee;
-import com.kainos.ea.model.Employee;
 import com.kainos.ea.model.Project;
-import io.swagger.annotations.Api;
-
-import javax.ws.rs.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
