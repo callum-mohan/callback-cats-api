@@ -1,6 +1,5 @@
 package com.kainos.ea.dao;
 
-import com.kainos.ea.model.Employee;
 import com.kainos.ea.model.SalesEmployee;
 
 import java.sql.*;

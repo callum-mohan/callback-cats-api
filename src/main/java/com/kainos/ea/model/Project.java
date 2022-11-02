@@ -5,6 +5,10 @@ public class Project {
     private String projectName;
     private String projectDescription;
 
+    public Project(){
+
+    }
+
     public Project(int projectId, String projectName, String projectDescription) {
       setProjectId(projectId);
       setProjectName(projectName);
