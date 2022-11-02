@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Path("/api")
-@Api("Engineering Academy Dropwizard API")
 public class EmployeeService {
 
     Connection connection = dbConnection.getConnection();
