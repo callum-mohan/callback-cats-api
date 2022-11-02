@@ -6,6 +6,9 @@ public class SalesEmployee extends Employee{
     private float commissionRate;
     private float totalSales;
 
+    public SalesEmployee(){
+
+    }
 
     public SalesEmployee(int employeeId, String first_name, String last_name, float totalSales) {
         super(employeeId, first_name, last_name);
