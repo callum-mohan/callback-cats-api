@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Path("/api")
-@Api("Business System API")
+@Api("Callback Cats API")
 public class WebService {
     public WebService() {
     }
