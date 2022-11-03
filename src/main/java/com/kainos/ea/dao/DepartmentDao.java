@@ -24,11 +24,24 @@ public class DepartmentDao {
         PreparedStatement preparedStmt = c.prepareStatement(selectAllProjects);
         ResultSet rs = preparedStmt.executeQuery();
         while (rs.next()) {
-            Department dbDepartment = new Department(rs.getInt("ProjectId"), rs.getString("ProjectName"), rs.getString("ProjectDescription"));
+            Department dbDepartment = new Department(rs.getInt("DepartmentId"), rs.getString("DepartmentName"), rs.getString("DepartmentDescription"));
             allProjects.add(dbDepartment);
         }
         return allProjects;
     }
+
+    public List<Integer> getDepartmentId(Connection c) throws SQLException{
+        List<Integer> allIds = new ArrayList<>();
+        Statement st = c.createStatement();
+        String selectAllProjects = "SELECT DepartmentId FROM Department";
+        PreparedStatement preparedStmt = c.prepareStatement(selectAllProjects);
+        ResultSet rs = preparedStmt.executeQuery();
+        while (rs.next()) {
+            allIds.add(rs.getInt("DepartmentId"));
+        }
+        return allIds;
+    }
+
 
     public Department selectDepartmentById(int id, Connection c) throws SQLException{
         Department dbDepartment = new Department();
