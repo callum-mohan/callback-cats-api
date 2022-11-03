@@ -7,7 +7,6 @@ import java.util.Properties;
 
 public class dbConnection {
     private static Connection conn;
-
     public static Connection getConnection() {
         String user ;
         String password;

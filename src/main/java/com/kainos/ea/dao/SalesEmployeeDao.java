@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SalesEmployeeDao {
-    public void insertSalesEmployee(SalesEmployee emp, Connection c) throws SQLException {
+    public void insertSalesEmployee(int empId, SalesEmployee emp, Connection c) throws SQLException {
         Statement st = c.createStatement();
         String insertSalesEmployee = "INSERT INTO SalesEmployee VALUES (?, ?, ?, ?)";
         PreparedStatement preparedStmt2 = c.prepareStatement(insertSalesEmployee);
         preparedStmt2.setInt(1, emp.getSalesId());
         preparedStmt2.setFloat(2, emp.getCommissionRate());
         preparedStmt2.setFloat(3, emp.getTotalSales());
-        preparedStmt2.setInt(4, emp.getEmployeeId());
+        preparedStmt2.setInt(4, empId);
         preparedStmt2.executeUpdate();
     }
 

@@ -10,27 +10,25 @@ import java.util.List;
 
 public class EmployeeService {
 
-    Connection connection = dbConnection.getConnection();
-
     public List<Employee> getAllEmployees() throws SQLException {
         EmployeeDao employeeDao = new EmployeeDao();
-        return employeeDao.selectAllEmployees(connection);
+        return employeeDao.selectAllEmployees(dbConnection.getConnection());
     }
 
     public Employee getEmployeeById(int EmployeeID) throws SQLException {
         EmployeeDao employeeDao = new EmployeeDao();
-        return employeeDao.selectEmployeeByID(EmployeeID, connection);
+        return employeeDao.selectEmployeeByID(EmployeeID, dbConnection.getConnection());
     }
 
     public Boolean insertEmployee(Employee employee) throws SQLException {
         EmployeeDao employeeDao = new EmployeeDao();
-        employeeDao.insertEmployee(employee, connection);
+        employeeDao.insertEmployee(employee, dbConnection.getConnection());
         return true;
     }
 
     public List<Employee> getEmployeeGrossPay() throws SQLException{
         EmployeeDao employeeDao = new EmployeeDao();
-        return employeeDao.getEmployeeGrossPay(connection);
+        return employeeDao.getEmployeeGrossPay(dbConnection.getConnection());
     }
 
 }

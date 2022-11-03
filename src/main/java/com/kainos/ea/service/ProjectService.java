@@ -8,20 +8,19 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ProjectService {
-    Connection connection = dbConnection.getConnection();
     public List<Project> getAllProjects() throws SQLException {
         ProjectDao projectDao = new ProjectDao();
-        return projectDao.selectAllProjects(connection);
+        return projectDao.selectAllProjects(dbConnection.getConnection());
     }
 
     public Project getEmployeeById(int projectId) throws SQLException {
         ProjectDao projectDao = new ProjectDao();
-        return projectDao.selectProjectByID(projectId,connection);
+        return projectDao.selectProjectByID(projectId,dbConnection.getConnection());
     }
 
     public boolean insertProject(Project project) throws SQLException {
         ProjectDao projectDao = new ProjectDao();
-        projectDao.insertProject(project, connection);
+        projectDao.insertProject(project, dbConnection.getConnection());
         return true;
     }
 

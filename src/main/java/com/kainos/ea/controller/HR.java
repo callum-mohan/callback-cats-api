@@ -44,15 +44,10 @@ public class HR {
         }
     }
 
-    public List<Employee> getAllEmployees(){
+    public List<Employee> getAllEmployees() throws SQLException{
         List<Employee> allEmployees = new ArrayList<>();
-        try{
-            EmployeeService employeeService = new EmployeeService();
-            allEmployees = employeeService.getAllEmployees();
-        }
-        catch(SQLException ex){
-            System.out.println("Couldn't retrieve Employee Details!");
-        }
+        EmployeeService employeeService = new EmployeeService();
+        allEmployees = employeeService.getAllEmployees();
         return allEmployees;
     }
 

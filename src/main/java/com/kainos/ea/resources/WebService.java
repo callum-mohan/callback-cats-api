@@ -24,16 +24,9 @@ public class WebService {
     @GET
     @Path("/employees/get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllEmps() {
+    public Response getAllEmps() throws SQLException {
         HR h = new HR();
         List<Employee> result = h.getAllEmployees();
-        if (result.size() == 0) {
-            Message message = new Message("No employees were found.");
-            return Response
-                    .status(204)
-                    .entity(message)
-                    .build();
-        }
         return Response
                 .status(200)
                 .entity(result)

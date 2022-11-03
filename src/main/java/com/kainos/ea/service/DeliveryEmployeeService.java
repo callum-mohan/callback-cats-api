@@ -10,22 +10,21 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DeliveryEmployeeService {
-    Connection connection = dbConnection.getConnection();
     public List<DeliveryEmployee> getAllDeliveryEmployees() throws SQLException {
         DeliveryEmployeeDao dao = new DeliveryEmployeeDao();
-        return dao.selectAllDeliveryEmployees(connection);
+        return dao.selectAllDeliveryEmployees(dbConnection.getConnection());
     }
 
     public DeliveryEmployee getDeliveryEmployeeByID(int employeeID) throws SQLException{
         DeliveryEmployeeDao dao = new DeliveryEmployeeDao();
-        return dao.selectDeliveryEmployeeByID(employeeID, connection);
+        return dao.selectDeliveryEmployeeByID(employeeID, dbConnection.getConnection());
     }
 
     public boolean insertDeliveryEmployee(DeliveryEmployee emp) throws SQLException{
         EmployeeDao dao = new EmployeeDao();
         DeliveryEmployeeDao dao1 = new DeliveryEmployeeDao();
-        dao.insertEmployee(emp, connection);
-        dao1.insertDeliveryEmployee(emp, connection);
+        dao.insertEmployee(emp, dbConnection.getConnection());
+        dao1.insertDeliveryEmployee(dao.lastInsertID(dbConnection.getConnection()), emp, dbConnection.getConnection());
         return true;
     }
 }
