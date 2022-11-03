@@ -19,8 +19,7 @@ public class DeliveryEmployeeDao {
     public List<DeliveryEmployee> selectAllDeliveryEmployees(Connection c) throws SQLException{
         List<DeliveryEmployee> allDeliveryEmployees = new ArrayList<>();
         Statement st = c.createStatement();
-        String selectAllDeliveryEmployees = "SELECT DeliveryEmployee.DeliveryId, Employee.EmployeeId, Employee.first_name, Employee.last_name, Employee.Address, Employee.Postcode, Employee.NIN, Employee.BankNo, Employee.StartSalary" +
-                "FROM DeliveryEmployee INNER JOIN Employee ON DeliveryEmployee.EmployeeId = Employee.EmployeeId";
+        String selectAllDeliveryEmployees = "SELECT Employee.EmployeeId, Employee.first_name, Employee.last_name, Employee.Address, Employee.Postcode, Employee.NIN, Employee.BankNo, Employee.StartSalary, Employee.DepartmentId, DeliveryEmployee.DeliveryId FROM Employee RIGHT JOIN DeliveryEmployee ON Employee.EmployeeId = DeliveryEmployee.EmployeeId";
         PreparedStatement preparedStmt = c.prepareStatement(selectAllDeliveryEmployees);
         ResultSet rs = preparedStmt.executeQuery();
         while (rs.next()) {
