@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeliveryEmployeeDao {
-    public void insertDeliveryEmployee(DeliveryEmployee emp, Connection c) throws SQLException {
+    public void insertDeliveryEmployee(int empId, DeliveryEmployee emp, Connection c) throws SQLException {
         Statement st = c.createStatement();
         String insertDeliveryEmployee = "INSERT INTO DeliveryEmployee VALUES (?, ?)";
         PreparedStatement preparedStmt2 = c.prepareStatement(insertDeliveryEmployee);
-        preparedStmt2.setInt(1, emp.getEmployeeId());
-        preparedStmt2.setInt(2, emp.getDeliveryId());
+        preparedStmt2.setInt(1, emp.getDeliveryId());
+        preparedStmt2.setInt(2, empId);
         preparedStmt2.executeUpdate();
     }
 

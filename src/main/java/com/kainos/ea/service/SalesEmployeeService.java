@@ -10,29 +10,28 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class SalesEmployeeService {
-    Connection connection = dbConnection.getConnection();
-
     public List<SalesEmployee> getAllSalesEmployees() throws SQLException {
         SalesEmployeeDao dao = new SalesEmployeeDao();
 
-        return dao.selectAllSalesEmployees(connection);
+        return dao.selectAllSalesEmployees(dbConnection.getConnection());
     }
 
     public SalesEmployee getSalesEmployeeByID(int employeeID) throws SQLException{
         SalesEmployeeDao dao = new SalesEmployeeDao();
-        return dao.selectSalesEmployeeByID(employeeID, connection);
+        return dao.selectSalesEmployeeByID(employeeID, dbConnection.getConnection());
     }
 
     public boolean insertSalesEmployee(SalesEmployee employee) throws SQLException{
         SalesEmployeeDao dao = new SalesEmployeeDao();
         EmployeeDao dao1 = new EmployeeDao();
-        dao1.insertEmployee(employee, connection);
-        dao.insertSalesEmployee(employee, connection);
+        dao1.insertEmployee(employee, dbConnection.getConnection());
+        dao1.lastInsertID(dbConnection.getConnection());
+        dao.insertSalesEmployee(dao1.lastInsertID(dbConnection.getConnection()), employee, dbConnection.getConnection());
         return true;
     }
 
     public SalesEmployee getHighestSales() throws SQLException {
         SalesEmployeeDao dao = new SalesEmployeeDao();
-        return dao.selectHighestSalesTotal(connection);
+        return dao.selectHighestSalesTotal(dbConnection.getConnection());
     }
 }

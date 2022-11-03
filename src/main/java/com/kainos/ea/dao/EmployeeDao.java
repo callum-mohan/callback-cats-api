@@ -50,6 +50,17 @@ public class EmployeeDao {
         return dbEmp;
     }
 
+    public int lastInsertID(Connection c) throws SQLException{
+        int lastID = 0;
+        String lastInsertId = "SELECT EmployeeId FROM Employee ORDER BY EmployeeId DESC LIMIT 1";
+        PreparedStatement preparedStmt = c.prepareStatement(lastInsertId);
+        ResultSet rs = preparedStmt.executeQuery();
+        while (rs.next()) {
+            lastID = rs.getInt("EmployeeId");
+        }
+        return lastID;
+    }
+
     public List<Employee> getEmployeeGrossPay(Connection c) throws SQLException {
         List<Employee> employees = new ArrayList<>();
         String getGrossPay = "SELECT * FROM Employee";

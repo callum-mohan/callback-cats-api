@@ -8,20 +8,19 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DepartmentService {
-    Connection connection = dbConnection.getConnection();
     public List<Department> getAllDepartments() throws SQLException {
         DepartmentDao dao = new DepartmentDao();
-        return dao.selectAllDepartments(connection);
+        return dao.selectAllDepartments(dbConnection.getConnection());
     }
 
     public Department getDepartmentById(int departmentId) throws SQLException{
         DepartmentDao dao = new DepartmentDao();
-        return dao.selectDepartmentById(departmentId, connection);
+        return dao.selectDepartmentById(departmentId, dbConnection.getConnection());
     }
 
     public boolean insertDepartment(Department department) throws SQLException{
         DepartmentDao dao = new DepartmentDao();
-        dao.insertDepartment(department, connection);
+        dao.insertDepartment(department, dbConnection.getConnection());
         return true;
     }
 }

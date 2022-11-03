@@ -1,3 +1,4 @@
 .idea/
 target/g
+target/
 databaseCredentials.properties
