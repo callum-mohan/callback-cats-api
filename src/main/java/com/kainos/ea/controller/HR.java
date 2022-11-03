@@ -1,9 +1,11 @@
 package com.kainos.ea.controller;
 
 import com.kainos.ea.model.DeliveryEmployee;
+import com.kainos.ea.model.Department;
 import com.kainos.ea.model.Employee;
 import com.kainos.ea.model.SalesEmployee;
 import com.kainos.ea.service.DeliveryEmployeeService;
+import com.kainos.ea.service.DepartmentService;
 import com.kainos.ea.service.EmployeeService;
 import com.kainos.ea.service.SalesEmployeeService;
 
@@ -73,5 +75,35 @@ public class HR {
             System.out.println("Couldn't retrieve Delivery Employee Details!");
         }
         return allDelEmployees;
+    }
+
+    public List<Integer> getDepartmentId(){
+        List<Integer> departmentIds = new ArrayList<>();
+        try{
+            DepartmentService departmentService = new DepartmentService();
+            departmentIds = departmentService.getDepartmentId();
+        }
+        catch(SQLException ex){
+            System.out.println("Couldn't retrieve Department IDs!");
+        }
+        return departmentIds;
+    }
+
+    public Boolean insertDepartment(Department dep){
+        try{
+            DepartmentService departmentService = new DepartmentService();
+            departmentService.insertDepartment(dep);
+            return true;
+        }
+        catch(SQLException ex){
+            return false;
+        }
+    }
+
+    public List<Department> getAllDepartments() throws SQLException{
+        List<Department> allDepartments = new ArrayList<>();
+        DepartmentService departmentService = new DepartmentService();
+        allDepartments = departmentService.getAllDepartments();
+        return allDepartments;
     }
 }

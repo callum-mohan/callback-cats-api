@@ -23,4 +23,10 @@ public class DepartmentService {
         dao.insertDepartment(department, dbConnection.getConnection());
         return true;
     }
+
+    public List<Integer> getDepartmentId() throws SQLException{
+        DepartmentDao dao = new DepartmentDao();
+        return dao.getDepartmentId(dbConnection.getConnection());
+    }
+
 }
